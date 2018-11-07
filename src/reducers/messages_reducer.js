@@ -1,7 +1,4 @@
-export default function(state, action) {
-  if (state === undefined) {
-    return [];
-  }
+export default function(state = null, action) {
 
   switch(action.type) {
 
@@ -13,7 +10,7 @@ export default function(state, action) {
       copiedState.push(action.payload);
       return copiedState;
     };
-
+    
     default:
       return state;
   }

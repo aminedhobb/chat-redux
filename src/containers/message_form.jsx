@@ -19,6 +19,9 @@ class MessageForm extends Component {
     });
   }
 
+  componentDidMount() {
+    this.messageBox.focus();
+  }
  
 
 
@@ -26,6 +29,7 @@ class MessageForm extends Component {
     if (this.state.value) {
       this.props.createMessage(this.props.userName, this.state.value, this.props.selectedChannel);
       this.setState({value: ''});
+      this.messageBox.focus();
     }
   }
 
@@ -33,7 +37,7 @@ class MessageForm extends Component {
     return(
       <div className="message-form form-row">
         <div className="col-xs-10">
-          <input className="form-control" value={this.state.value} onChange={this.handleChange} />
+          <input className="form-control" value={this.state.value} onChange={this.handleChange} ref={(input) => this.messageBox = input}/>
         </div>
         <div className="col-xs-2">
           <button type="button" className="btn btn-danger" onClick={this.handleSubmit} >Send</button> 

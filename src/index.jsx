@@ -20,8 +20,7 @@ const initialState = {
   channels: ['react', 'general', 'paris'],
   messages: [],
   selectedChannel: 'general',
-  userName: 'amine'
-  // userName: prompt('what is your username ?') || `anonymos${10 + (90 * Math.random())}`
+  userName: prompt('what is your username ?') || `anonymos${10 + (90 * Math.random())}`
 }
 
 const reducers = combineReducers({

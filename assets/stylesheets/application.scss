@@ -3,13 +3,16 @@ body {
 }
 .app {
   display: flex;
+  height: 100vh;
 
   .channels {
     padding-left: 20px;
     width: 30%;
     background-color: #F4F4F4;
     color: #DBDBDB;
-    height: 100vh;
+    height: 100%;
+    box-sizing: border-box;
+
     h2 {
       font-weight: bold;
       color: black;
@@ -26,6 +29,10 @@ body {
   .messages {
     padding-left: 20px;
     width: 70%;
+    overflow: scroll;
+    box-sizing: border-box;
+    height: 100%;
+
     .message {
       margin-top: 10px;
       h5 {

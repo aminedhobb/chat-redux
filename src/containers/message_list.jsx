@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import Message from './message.jsx';
 import MessageForm from './message_form.jsx';
 import { setMessages } from '../actions';
@@ -8,6 +8,22 @@ import { setMessages } from '../actions';
 class MessageList extends Component {
 
   componentWillMount() {
+    this.props.fetchMessages;
+  }
+
+  // componentDidMount() {
+  //   this.refresher = setInterval(this.fetchMessages, 5000);
+  // }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.refresher);
+  // }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  fetchMessages = () => {
     this.props.setMessages(this.props.selectedChannel);
   }
 
@@ -15,7 +31,7 @@ class MessageList extends Component {
     let key = -1;
 
     return(
-      <div className="messages">
+      <div className="messages" ref={(list) => this.list = list}>
         {this.props.messages.map((message) => {
             key += 1;
             return (<Message key={key} message={message} />);
