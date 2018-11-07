@@ -26,7 +26,9 @@ class ChannelList extends Component {
               key={channel} 
               className={channelClass} 
               onClick={() => this.handleClick(channel)}
-            > #{channel} </h3>
+            > 
+              #{channel} 
+            </h3>
           );
         })}
       </div>

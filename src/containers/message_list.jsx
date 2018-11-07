@@ -8,17 +8,16 @@ import { setMessages } from '../actions';
 class MessageList extends Component {
 
   componentWillMount() {
-    console.log('here i am');
     this.fetchMessages();
   }
 
-  // componentDidMount() {
-  //   this.refresher = setInterval(this.fetchMessages, 5000);
-  // }
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000);
+  }
 
-  // componentWillUnmount() {
-  //   clearInterval(this.refresher);
-  // }
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
 
   componentDidUpdate() {
     this.list.scrollTop = this.list.scrollHeight;
