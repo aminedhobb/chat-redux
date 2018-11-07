@@ -8,7 +8,8 @@ import { setMessages } from '../actions';
 class MessageList extends Component {
 
   componentWillMount() {
-    this.props.fetchMessages;
+    console.log('here i am');
+    this.fetchMessages();
   }
 
   // componentDidMount() {
@@ -31,11 +32,13 @@ class MessageList extends Component {
     let key = -1;
 
     return(
-      <div className="messages" ref={(list) => this.list = list}>
-        {this.props.messages.map((message) => {
-            key += 1;
-            return (<Message key={key} message={message} />);
-          })}
+      <div className="messages" >
+        <div className="message-list" ref={(list) => this.list = list} >
+          {this.props.messages.map((message) => {
+              key += 1;
+              return (<Message key={key} message={message} />);
+            })}
+        </div>
         <MessageForm />
       </div> 
     );

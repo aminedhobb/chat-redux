@@ -26,6 +26,7 @@ class MessageForm extends Component {
 
 
   handleSubmit = (event) => {
+    event.preventDefault();
     if (this.state.value) {
       this.props.createMessage(this.props.userName, this.state.value, this.props.selectedChannel);
       this.setState({value: ''});
@@ -35,14 +36,16 @@ class MessageForm extends Component {
 
   render() {
     return(
-      <div className="message-form form-row">
-        <div className="col-xs-10">
-          <input className="form-control" value={this.state.value} onChange={this.handleChange} ref={(input) => this.messageBox = input}/>
+      <form onSubmit={this.handleSubmit} >
+        <div className="message-form form-row">
+          <div className="col-xs-10">
+            <input className="form-control" value={this.state.value} onChange={this.handleChange} ref={(input) => this.messageBox = input}/>
+          </div>
+          <div className="col-xs-2">
+            <button type="submit" className="btn btn-danger">Send</button> 
+          </div>
         </div>
-        <div className="col-xs-2">
-          <button type="button" className="btn btn-danger" onClick={this.handleSubmit} >Send</button> 
-        </div>
-      </div>
+      </form>
     );
   }
 }

@@ -4,46 +4,57 @@ body {
 .app {
   display: flex;
   height: 100vh;
+}
 
-  .channels {
-    padding-left: 20px;
-    width: 30%;
-    background-color: #F4F4F4;
-    color: #DBDBDB;
-    height: 100%;
-    box-sizing: border-box;
+.channels {
+  padding-left: 20px;
+  width: 30%;
+  background-color: #F4F4F4;
+  color: #DBDBDB;
+  height: 100%;
+  box-sizing: border-box;
 
-    h2 {
-      font-weight: bold;
-      color: black;
-    }
-    .channel {
-      cursor: pointer;
-    }
-    .selected {
-      font-weight: bold;
-      color: black;
-    }
-  }
-
-  .messages {
-    padding-left: 20px;
-    width: 70%;
-    overflow: scroll;
-    box-sizing: border-box;
-    height: 100%;
-
-    .message {
-      margin-top: 10px;
-      h5 {
-        font-weight: bold;
-        color: red;
-      }
-    }
-    .message-form {
-      position: fixed;
-      bottom: 20px;
-      width: 60%;
-    }
+  h2 {
+    font-weight: bold;
+    color: black;
   }
 }
+
+.channel {
+  cursor: pointer;
+}
+.selected {
+  font-weight: bold;
+  color: black;
+}
+
+
+.messages {
+  padding-left: 20px;
+  width: 70%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.message-list {
+
+overflow: scroll;
+
+}
+
+.message {
+  margin-top: 10px;
+  h5 {
+    font-weight: bold;
+    color: red;
+  }
+}
+    
+.message-form {
+  background-color: white;
+  position: fixed;
+  bottom: 20px;
+  width: 60%;
+}
+
+
